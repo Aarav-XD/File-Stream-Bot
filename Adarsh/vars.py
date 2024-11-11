@@ -20,17 +20,17 @@ class Var(object):
     API_HASH = str(getenv('API_HASH', ''))
     PICS = (environ.get('PICS', 'https://envs.sh/jUp.jpg')).split()
     BOT_TOKEN = str(getenv('BOT_TOKEN', ''))
-    name = str(getenv('name', 'linkstreamrobot'))
+    name = str(getenv('name', 'RxFileStreamBot'))
     SLEEP_THRESHOLD = int(getenv('SLEEP_THRESHOLD', '60'))
     WORKERS = int(getenv('WORKERS', '4'))
-    BIN_CHANNEL = int(getenv('BIN_CHANNEL', ''))
+    BIN_CHANNEL = int(getenv('BIN_CHANNEL', '-1002315913185'))
     PORT = int(getenv('PORT', 8080))
     BIND_ADRESS = str(getenv('WEB_SERVER_BIND_ADDRESS', '0.0.0.0'))
     PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))  # 20 minutes
-    OWNER_ID = [int(x) for x in os.environ.get("OWNER_ID", "").split()]
+    OWNER_ID = [int(x) for x in os.environ.get("OWNER_ID", "7252430326").split()]
     NO_PORT = bool(getenv('NO_PORT', False))
     APP_NAME = None
-    OWNER_USERNAME = str(getenv('OWNER_USERNAME', 'CodeXBro'))
+    OWNER_USERNAME = str(getenv('OWNER_USERNAME', 'DeoxysX'))
     if 'DYNO' in environ:
         ON_HEROKU = True
         APP_NAME = str(getenv('APP_NAME'))
@@ -43,8 +43,8 @@ class Var(object):
         URL = "https://{}/".format(FQDN)
     else:
         URL = "http://{}/".format(FQDN)
-    DATABASE_URL = str(getenv('DATABASE_URL', ''))
-    UPDATES_CHANNEL = str(getenv('UPDATES_CHANNEL', 'RahulReviewsYT'))
+    DATABASE_URL = str(getenv('DATABASE_URL', 'mongodb+srv://isha1470:rvi2uo5wacfGVSqB@cluster0.fvezv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'))
+    UPDATES_CHANNEL = str(getenv('UPDATES_CHANNEL', 'RxBotz'))
     BANNED_CHANNELS = list(set(int(x) for x in str(getenv("BANNED_CHANNELS", "")).split()))
     BAN_ALERT = str(getenv('BAN_ALERT' , '<b>ʏᴏᴜʀ ᴀʀᴇ ʙᴀɴɴᴇᴅ ᴛᴏ ᴜsᴇ ᴛʜɪs ʙᴏᴛ.ᴄᴏɴᴛᴀᴄᴛ @CallOwnerBot ᴛᴏ ʀᴇsᴏʟᴠᴇ ᴛʜᴇ ɪssᴜᴇ!!</b>'))
     SHORTLINK = is_enabled('SHORTLINK', False)
