@@ -51,7 +51,7 @@ async def private_receive_handler(c: Client, m: Message):
             if user.status == "kicked":
                 await c.send_message(
                     chat_id=m.chat.id,
-                    text="You are banned!\n\n  Contact Developer [Rahul](https://telegram.me/CodeXBro) he will help you.",
+                    text="You are banned!\n\n  Contact Developer [Rahul](https://telegram.me/Deoxys) he will help you.",
                     disable_web_page_preview=True
                 )
                 return 
@@ -120,8 +120,9 @@ async def private_receive_handler(c: Client, m: Message):
                 [InlineKeyboardButton('🧿 ᴡᴀᴛᴄʜ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ 🖥', web_app=WebAppInfo(url=stream))]
             ])
         )
-        await m.delete()
+
         await asyncio.sleep(43200)
+        await m.delete()
         await log_msg.delete()
         await a.delete()
         await k.delete()
@@ -137,8 +138,8 @@ async def private_receive_handler(c: Client, m: Message):
 
 @StreamBot.on_message(filters.channel & ~filters.group & (filters.document | filters.video | filters.photo)  & ~filters.forwarded, group=-1)
 async def channel_receive_handler(bot, broadcast):
-    if int(broadcast.chat.id) in Var.BAN_CHNL:
-        print("chat trying to get straming link is found in BAN_CHNL,so im not going to give stram link")
+    if int(broadcast.chat.id) in Var.BANNED_CHANNELS:
+        print("chat trying to get straming link is found in Banned Channel,so im not going to give stram link")
         return
     ban_chk = await db.is_banned(int(broadcast.chat.id))
     if (int(broadcast.chat.id) in Var.BANNED_CHANNELS) or (ban_chk == True):
